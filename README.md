@@ -30,7 +30,7 @@ Things you may want to cover:
 | Column             | Type                   | Options                 |
 |--------------------|------------------------|-------------------------|
 | nickname           | string                 | null: false             |
-| email              | string                 | null: false             |
+| email              | string                 | unique: true            |
 | encrypted_password | string                 | null: false             |
 | surname            | string                 | null: false             |
 | name               | string                 | null: false             |
@@ -52,7 +52,7 @@ Things you may want to cover:
 | category_id        | integer                | null: false             |
 | status_id          | integer                | null: false             |
 | shipping_fee_id    | integer                | null: false             |
-| shipping_area_id   | integer                | null: false             |
+| state_id           | integer                | null: false             |
 | shipping_date_id   | integer                | null: false             |
 | price              | integer                | null: false             |
 | user               | references             | foreign_key: true       |
@@ -66,8 +66,6 @@ Things you may want to cover:
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| expiry_date | integer    | null: false       |
-| security    | integer    | null: false       |
 | user        | references | foreign_key: true |
 | product     | references | foreign_key: true |
 
@@ -81,8 +79,8 @@ Things you may want to cover:
 
 | Column             | Type                   | Options                 |
 |--------------------|------------------------|-------------------------|
-| zip code           | string                 | null: false             |
-| states             | string                 | null: false             |
+| zip_code           | string                 | null: false             |
+| state_id           | string                 | null: false             |
 | city               | string                 | null: false             |
 | street             | string                 | null: false             |
 | apartment          | string                 |                         |
