@@ -80,7 +80,7 @@ Things you may want to cover:
 | Column             | Type                   | Options                 |
 |--------------------|------------------------|-------------------------|
 | zip_code           | string                 | null: false             |
-| state_id           | string                 | null: false             |
+| state_id           | integer                | null: false             |
 | city               | string                 | null: false             |
 | street             | string                 | null: false             |
 | apartment          | string                 |                         |
