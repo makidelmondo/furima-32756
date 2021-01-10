@@ -9,12 +9,13 @@ class Product < ApplicationRecord
   belongs_to :user
   has_one :deal_record
   has_one_attached :image
-
-  validates :category_id, numericality: { other_than: 1 }
-  validates :product_status_id, numericality: { other_than: 1 }
-  validates :shipping_fee_id, numericality: { other_than: 1 }
-  validates :state_id, numericality: { other_than: 1 }
-  validates :shipping_date_id, numericality: { other_than: 1 }
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :product_status_id
+    validates :shipping_fee_id
+    validates :state_id
+    validates :shipping_date_id
+  end
   with_options presence: true do
     validates :title
     validates :explanation
