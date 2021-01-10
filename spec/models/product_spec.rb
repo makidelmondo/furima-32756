@@ -73,6 +73,9 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include("Image can't be blank")
       end
       it "ユーザーが紐付いていないとツイートは保存できない" do
+        @product.user = nil
+        @product.valid?
+        expect(@product.errors.full_messages).to include("User must exist")
       end
     end
   end
