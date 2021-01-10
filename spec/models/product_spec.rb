@@ -57,6 +57,16 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is invalid. Price most be between 300yen to 9,999,999yen and most be written in harf-width numbers.")
       end
+      it "半角英数混合だと出品できない" do
+        @product.price = 'A2000'
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is invalid. Price most be between 300yen to 9,999,999yen and most be written in harf-width numbers.")
+      end
+      it "半角英字だけだと出品できない" do
+        @product.price = 'techcamp'
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is invalid. Price most be between 300yen to 9,999,999yen and most be written in harf-width numbers.")
+      end
       it "価格が300円未満だと出品できない" do
         @product.price = 299
         @product.valid?
@@ -67,7 +77,7 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is invalid. Price most be between 300yen to 9,999,999yen and most be written in harf-width numbers.")
       end
-      it "画像が空と出品できない" do
+      it "画像が空だと出品できない" do
         @product.image = nil
         @product.valid?
         expect(@product.errors.full_messages).to include("Image can't be blank")
