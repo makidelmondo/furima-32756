@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_product, only: [:edit, :show]
   def index
     @products = Product.order(id: "DESC")
   end
@@ -17,8 +18,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
+  def show
+    
+  end
+
   private
   def product_params
     params.require(:product).permit(:title, :explanation, :category_id, :product_status_id, :shipping_fee_id, :state_id, :shipping_date_id, :price, :image).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
