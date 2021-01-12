@@ -24,7 +24,7 @@ class Product < ApplicationRecord
     validates :shipping_fee_id
     validates :state_id
     validates :shipping_date_id
-    validates :price, numericality: {only_integer: true, greater_than: 299, less_than: 10000000, message: "is invalid. Price most be between 300yen to 9,999,999yen and most be written in harf-width numbers."}
+    validates :price, numericality: {only_integer: true, greater_than: 299, less_than: 10000000, message: "is invalid. Price must be between 300yen to 9,999,999yen and most be written in harf-width numbers."}
     validates :image
   end
 end
