@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show,]
   before_action :set_product, only: [:edit, :update, :show]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-  before_action :move_to_login, only: [:edit, :update, :destroy]
   def index
     @products = Product.order(id: "DESC")
   end
@@ -48,9 +47,5 @@ class ProductsController < ApplicationController
 
   def move_to_index
     redirect_to root_path unless current_user == @product.user
-  end
-
-  def move_to_login
-    redirect_to new_user_session_path unless user_signed_in?
   end
 end
