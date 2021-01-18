@@ -6,7 +6,7 @@ RSpec.describe Product, type: :model do
   end
 
   describe '出品' do
-    context "出品が出品できる場合" do
+    context "商品が出品できる場合" do
       it "全記入欄に記入があれば出品できる" do
         expect(@product).to be_valid
       end

@@ -6,7 +6,6 @@ class DealRecordsController < ApplicationController
 
   def create
     @deal_record = DealShipment.new(deal_params)
-    binding.pry
     if @deal_record.valid?
       @deal_record.save
       redirect_to root_path
