@@ -18,7 +18,7 @@ class DealRecordsController < ApplicationController
   end
 
   private
-#定義したメソッドの実行順はプライベートメソッドないの順序ではなくビフォーアクションの順序に準ずると留意すること。
+#プライベートメソッド内に書かれたメソッドの順序は実行順序に関係ない。ビフォーアクションに書いた順に実行されることに留意すること。
   def deal_params
     params.require(:deal_record).permit(:zip_code, :state_id, :city, :street, :apartment, :telephone).merge(user_id: current_user.id, product_id: params[:product_id], token: params[:token])
   end
