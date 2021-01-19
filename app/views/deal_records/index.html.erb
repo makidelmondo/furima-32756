@@ -32,6 +32,8 @@
     <%# /支払額の表示 %>
 
     <%= form_with(model: @deal_record, url: product_deal_records_path, method: :post, id: 'charge-form', class: 'transaction-form-wrap',local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %> 
+      <%#f.objectのfが変数として使えるのはfが定義されている範囲内のみであるとわからずに適当に34行目のfの範囲外にレンダーを貼り付けていたのでノーネームエラーを出していた。%>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -121,7 +123,7 @@
       </div>
     </div>
     <%# /配送先の入力 %>
-            <%= render 'shared/error_messages', model: f.object %>
+
     <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
     </div>

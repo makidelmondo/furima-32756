@@ -7,7 +7,5 @@ FactoryBot.define do
     apartment  {}
     telephone  {"08019190721"}
     token      {"kissmyass0079"}
-    association :user
-    association :product
   end
 end
