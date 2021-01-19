@@ -57,6 +57,11 @@ RSpec.describe DealShipment, type: :model do
         @deal_shipment.valid?
         expect(@deal_shipment.errors.full_messages).to include("Telephone is invalid. Input half-width numbers without -.")
       end
+      it "tokenが空だと出品できない" do
+        @deal_shipment.token = nil
+        @deal_shipment.valid?
+        expect(@deal_shipment.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end

@@ -1,6 +1,6 @@
 class DealShipment
   include ActiveModel::Model
-  attr_accessor :user_id, :product_id, :zip_code, :state_id, :city, :street, :apartment, :telephone
+  attr_accessor :user_id, :product_id, :zip_code, :state_id, :city, :street, :apartment, :telephone, :token
 
   with_options presence: true do
     validates :zip_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Input with - and half-width numbers." }
@@ -8,6 +8,7 @@ class DealShipment
     validates :city
     validates :street
     validates :state_id, numericality: { other_than: 1 } 
+    validates :token
   end
 
   def save
