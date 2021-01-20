@@ -26,7 +26,7 @@ class DealRecordsController < ApplicationController
   def card_payment
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-          amount: @product.price,
+          amount: @product.price, #複雑に考えてフォームオブジェクト側にPriceの記述をしてそこと関連づけるべきと考えていた。
           card: deal_params[:token],
           currency: 'jpy'
     )
