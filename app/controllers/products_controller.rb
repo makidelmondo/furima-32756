@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
   def index
     @products = Product.order(id: "DESC")
+    #DESCと追記する事でIDの降順で並べ替えている。
   end
 
   def new

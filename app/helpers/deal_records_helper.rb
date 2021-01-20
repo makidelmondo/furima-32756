@@ -1,0 +1,2 @@
+module DealRecordsHelper
+end
