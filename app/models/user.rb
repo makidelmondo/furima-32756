@@ -10,7 +10,7 @@ class User < ApplicationRecord
          validates_format_of :password, with: PASSWORD_REGEX, message: "is invalid. Input the both of half-width characters and half-width numbers."
 
   with_options presence: true do
-    validates :nickname, format: { with: /\A[a-zA-Z0-9]+\z/, message: "is invalid. Input half-width characters." }
+    validates :nickname
     validates :birthday
     
     with_options format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "is invalid. Input full-width characters." } do
