@@ -52,6 +52,8 @@ class ProductsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless current_user == @product.user
+    #以下の記述だと一見して有効に見えるが、||ではなく&&にしないと無効であると後に分かった。&&だと有効でも人間の言語として難解なので57行目とした。Unlessでそもそも演算子の長文を作るのは一般的ではないそうだ。
+    #redirect_to root_path unless current_user == @product.user || @product.deal_record == nil
+    redirect_to root_path if current_user != @product.user || @product.deal_record != nil
   end
 end
