@@ -88,6 +88,18 @@
 
 .logout {
   text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.edit-user {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.destroy-user {
+  text-decoration: none;
   color: #333333;
 }
 
