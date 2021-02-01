@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
+  # Basic認証は開発途上のアプリを部外者が閲覧できない様にする目的で導入した。
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
